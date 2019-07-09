@@ -1,0 +1,7 @@
+export const CREATE_DRAGON = 'CREATE_DRAGON';
+export const SAVE_DRAGON = 'SAVE_DRAGON';
+
+export const DELETE_DRAGON = 'DELETE_DRAGON';
+
+export const FETCH_DRAGON = 'FETCH_DRAGON';
+export const FETCH_DRAGON_LIST = 'FETCH_DRAGON_LIST';
