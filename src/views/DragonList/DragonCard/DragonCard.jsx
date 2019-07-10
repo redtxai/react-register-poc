@@ -12,10 +12,10 @@ class DragonCard extends Component {
       dragon: this.props.dragon
     };
     this.handleChecked = this.handleChecked.bind(this);
-    this.saveActionFromEdit = this.saveActionFromEdit.bind(this);
+    this.actionFromEdit = this.actionFromEdit.bind(this);
   }
 
-  saveActionFromEdit () {
+  actionFromEdit () {
     this.setState({ isEditing: !this.state.isEditing} );
   }
 
@@ -34,7 +34,7 @@ class DragonCard extends Component {
         <p>{this.props.dragon.histories}</p>
       </section>
     } else {
-      card = <DragonCardEdit dragon={this.props.dragon} onSave={this.saveActionFromEdit}/>
+      card = <DragonCardEdit dragon={this.props.dragon} onSave={this.actionFromEdit} onCancel={this.actionFromEdit}/>
     }
 
     return (
