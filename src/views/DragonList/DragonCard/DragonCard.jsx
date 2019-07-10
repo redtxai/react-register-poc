@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+
 import './DragonCard.scss';
+import DragonCardEdit from './DragonCardEdit';
 
 class DragonCard extends Component {
   constructor(props) {
@@ -10,6 +12,11 @@ class DragonCard extends Component {
       dragon: this.props.dragon
     };
     this.handleChecked = this.handleChecked.bind(this);
+    this.saveActionFromEdit = this.saveActionFromEdit.bind(this);
+  }
+
+  saveActionFromEdit () {
+    this.setState({ isEditing: !this.state.isEditing} );
   }
 
   handleChecked () {
@@ -17,25 +24,25 @@ class DragonCard extends Component {
   }
 
   render() {
-    if (this.state.isEditing) {
-      return (<section>
-          <p><input type="checkbox" onChange={this.handleChecked} checked={this.state.isEditing} /></p>
-          <p><input type="text" value={this.state.dragon.id}/></p>
-          <p><input type="text" value={this.state.dragon.name}/></p>
-          <p><input type="text" value={this.state.dragon.createdAt}/></p>
-          <p><input type="text" value={this.state.dragon.type}/></p>
-          <p><input type="text" value={this.state.dragon.histories}/></p>
-        </section>
-      )
-    }
-    return (
-      <section>
-        <p><input type="checkbox" onChange={this.handleChecked} checked={this.state.isEditing} /></p>
+    let card;
+    if (!this.state.isEditing) {
+      card = <section>
         <p>{this.props.dragon.id}</p>
         <p>{this.props.dragon.name}</p>
         <p>{this.props.dragon.createdAt}</p>
         <p>{this.props.dragon.type}</p>
         <p>{this.props.dragon.histories}</p>
+      </section>
+    } else {
+      card = <DragonCardEdit dragon={this.props.dragon} onSave={this.saveActionFromEdit}/>
+    }
+
+    return (
+      <section>
+        <p>
+          <input type="checkbox" onChange={this.handleChecked} checked={this.state.isEditing} />
+        </p>
+        {card}
       </section>
     )
   }
