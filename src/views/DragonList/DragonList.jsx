@@ -6,13 +6,6 @@ import './DragonList.scss';
 import DragonCard from './DragonCard';
 
 class DragonList extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      dragonCardList: []
-    };
-  }
 
   componentDidMount() {
     const { fetchAllDragons } = this.props
@@ -33,11 +26,9 @@ class DragonList extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    dragons: state.dragons
-  };
-};
+const mapStateToProps = state => ({
+  dragons: state.reducer.dragons
+});
 
 const mapDispatchToProps = dispatch => {
   return {

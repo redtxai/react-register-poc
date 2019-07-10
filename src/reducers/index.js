@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import dragons from './dragonReducer';
+import reducer from './dragonReducer';
 
 export default combineReducers({
-  dragons: dragons
+  reducer
 });

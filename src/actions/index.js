@@ -1,4 +1,4 @@
-import { CREATE_DRAGON, SAVE_DRAGON, FETCH_DRAGON_LIST } from './types'
+import { CREATE_DRAGON, SAVE_DRAGON, FETCH_DRAGON, FETCH_DRAGON_LIST } from './types'
 import axios from 'axios'
 
 const apiUrl = 'http://5c4b2a47aa8ee500142b4887.mockapi.io/api/v1/dragon'
@@ -36,6 +36,25 @@ export const saveDragon = (dragon) => {
     return axios.put(`${apiUrl}/${dragon.id}`, dragon)
       .then(response => {
         dispatch(fetchAllDragons())
+      })
+      .catch(error => {
+        throw(error);
+      });
+  };
+};
+
+export const fetchDragon = (dragon) => {
+  return {
+    type: FETCH_DRAGON,
+    dragon
+  }
+}
+
+export const fetchDragonProfile = (id) => {
+  return (dispatch) => {
+    return axios.get(`${apiUrl}/${id}`)
+      .then(response => {
+        dispatch(fetchDragon(response.data))
       })
       .catch(error => {
         throw(error);

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import './DragonCard.scss';
 import DragonCardEdit from './DragonCardEdit';
@@ -27,7 +28,7 @@ class DragonCard extends Component {
     let card;
     if (!this.state.isEditing) {
       card = <section>
-        <p>{this.props.dragon.id}</p>
+        <p><Link to={`/dragon/${this.props.dragon.id}`}>{this.props.dragon.id}</Link></p>
         <p>{this.props.dragon.name}</p>
         <p>{this.props.dragon.createdAt}</p>
         <p>{this.props.dragon.type}</p>

@@ -7,8 +7,9 @@ import {
   Switch
 } from 'react-router-dom'
 
-// import Login from './views/Login/Login.js';
+// import Login from './views/Login/Login';
 import DragonList from './views/DragonList';
+import DragonProfile from './views/DragonProfile';
 
 class App extends Component {
   render() {
@@ -17,7 +18,7 @@ class App extends Component {
         <Switch>
           {/* <Route path="/" component={Login}/> */}
           <Route path="/dragon-list" component={DragonList}/>
-          {/* <Route path="/dragon-list" component={DragonList}/> */}
+          <Route path="/dragon/:id?" component={DragonProfile}/>
           {/* <PrivateRoute authed={fakeAuth.isAuthenticated} path="/dragon-list" component={DragonList} /> */}
         </Switch>
       </Router>
