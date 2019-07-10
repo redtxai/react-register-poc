@@ -1,6 +1,10 @@
 import { CREATE_DRAGON, FETCH_DRAGON_LIST } from '../actions/types';
 
-export default function dragonReducer(state = [], action) {
+const initialState = {
+  dragons: []
+}
+
+export default function dragonReducer(state = initialState, action) {
   switch (action.type) {
     case CREATE_DRAGON:
       return [...state, action.payload];

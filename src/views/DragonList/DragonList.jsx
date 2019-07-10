@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import './DragonList.scss';
+import { connect } from 'react-redux';
+import { fetchAllDragons } from '../../actions';
 
+import './DragonList.scss';
 import DragonCard from './DragonCard';
 
 class DragonList extends Component {
@@ -8,34 +10,41 @@ class DragonList extends Component {
     super(props);
 
     this.state = {
-      dragonCardList: [
-        {
-          "id": "146",
-          "createdAt": "08/07/2019 23:11:36",
-          "name": "Drokaa",
-          "type": "Fire",
-          "histories": []
-        },
-        {
-          "id": "147",
-          "createdAt": "08/07/2019 23:11:49",
-          "name": "Druuk",
-          "type": "Ice",
-          "histories": []
-        }
-      ]
+      dragonCardList: []
     };
   }
 
+  componentDidMount() {
+    const { fetchAllDragons } = this.props
+    fetchAllDragons()
+  }
+
   render() {
+    if (!this.props.dragons.length) {
+      return null
+    }
     return (
       <article>
-        {this.state.dragonCardList.map((dragon) =>
-          <DragonCard key={dragon.id} value={dragon}/>
+        {this.props.dragons.map((dragon) =>
+          <DragonCard key={dragon.id} dragon={dragon}/>
         )}
       </article>
     )
   }
 }
 
-export default DragonList;
+const mapStateToProps = state => {
+  return {
+    dragons: state.dragons
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchAllDragons: () => {
+      dispatch(fetchAllDragons());
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(DragonList);
