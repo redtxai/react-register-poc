@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { fetchDragonProfile } from '../../actions';
 
 import './DragonProfile.scss';
@@ -24,10 +25,20 @@ class DragonProfile extends Component {
   }
 
   render() {
-    if (this.props.match.params.id) {
-      return <DragonProfileEdit/>
+    if (this.props.match.params.id && this.props.dragon.id) {
+      return (
+        <section>
+          <Link to={`/dragon-list`}>voltar</Link>
+          <DragonProfileEdit dragon={this.props.dragon}/>
+        </section>
+      )
     }
-    return <DragonProfileCreate/>
+    return (
+      <section>
+        <Link to={`/dragon-list`}>voltar</Link>
+        <DragonProfileCreate/>
+      </section>
+    )
   }
 }
 

@@ -18,7 +18,6 @@ class DragonCardEdit extends Component {
     this.initialProps = Object.assign({}, this.state.dragon);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.saveDragon = this.saveDragon.bind(this);
-    this.cancelEdit = this.cancelEdit.bind(this);
   }
 
   handleInputChange({ target }) {
