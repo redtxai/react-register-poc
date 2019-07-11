@@ -8,7 +8,9 @@ import {
   FETCHING_DRAGON,
   FETCH_DRAGON,
   FETCHING_DRAGON_LIST,
-  FETCH_DRAGON_LIST
+  FETCH_DRAGON_LIST,
+  LOGIN,
+  LOGOUT
   } from './types'
 import axios from 'axios'
 
@@ -139,5 +141,19 @@ export const fetchAllDragons = () => {
       .catch(error => {
         throw(error);
       });
+  };
+};
+
+export const loggedIn = (logged) => {
+  return {
+    type: LOGIN,
+    logged
+  }
+}
+
+export const login = () => {
+  console.log('teste')
+  return (dispatch) => {
+    return dispatch(loggedIn(true))
   };
 };

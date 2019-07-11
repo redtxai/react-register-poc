@@ -8,12 +8,15 @@ import {
   FETCHING_DRAGON,
   FETCH_DRAGON,
   FETCHING_DRAGON_LIST,
-  FETCH_DRAGON_LIST
+  FETCH_DRAGON_LIST,
+  LOGIN,
+  LOGOUT
   } from '../actions/types'
 
 const initialState = {
   dragons: [],
-  dragon: {}
+  dragon: {},
+  logged: false
 }
 
 export default function dragonReducer(state = initialState, action) {
@@ -68,6 +71,12 @@ export default function dragonReducer(state = initialState, action) {
         dragons: action.dragons,
         createdDragon: false,
         savedDragon: false
+      };
+    case LOGIN:
+    case LOGOUT:
+      return {
+        ...state,
+        logged: action.logged,
       };
     default:
       return state;

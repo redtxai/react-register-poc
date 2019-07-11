@@ -12,3 +12,6 @@ export const FETCH_DRAGON = 'FETCH_DRAGON';
 
 export const FETCHING_DRAGON_LIST = 'FETCHING_DRAGON_LIST';
 export const FETCH_DRAGON_LIST = 'FETCH_DRAGON_LIST';
+
+export const LOGIN = 'LOGIN';
+export const LOGOUT = 'LOGOUT';
