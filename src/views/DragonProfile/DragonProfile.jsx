@@ -25,7 +25,10 @@ class DragonProfile extends Component {
   }
 
   render() {
-    if (this.props.match.params.id && this.props.dragon.id) {
+    if (this.props.match.params.id) {
+      if (this.props.fetchingDragon) {
+        return null
+      }
       return (
         <section>
           <Link to={`/dragon-list`}>voltar</Link>
@@ -44,7 +47,8 @@ class DragonProfile extends Component {
 
 const mapStateToProps = state => {
   return {
-    dragon: state.reducer.dragon
+    dragon: state.reducer.dragon,
+    fetchingDragon: state.reducer.fetchingDragon
   };
 };
 

@@ -31,20 +31,24 @@ class DragonProfileCreate extends Component {
   }
 
   render() {
-    const { requestFullfilled } = this.state
+    const { createdDragon } = this.props
 
     return (
       <section>
         <p><input type="text" name="name" onChange={this.handleInputChange} value={this.state.name}/></p>
         <p><input type="text" name="type" onChange={this.handleInputChange} value={this.state.type}/></p>
         <p><button onClick={this.createDragon}>Criar</button></p>
-        {requestFullfilled && (
+        {createdDragon && (
           <Redirect to="/dragon-list"/>
         )}
       </section>
     )
   }
 }
+
+const mapStateToProps = state => ({
+  createdDragon: state.reducer.createdDragon
+});
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -54,4 +58,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(DragonProfileCreate);
+export default connect(mapStateToProps, mapDispatchToProps)(DragonProfileCreate);

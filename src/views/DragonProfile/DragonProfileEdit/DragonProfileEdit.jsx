@@ -23,32 +23,34 @@ class DragonProfileEdit extends Component {
   }
 
   handleInputChange({ target }) {
-    const state = { dragon: this.initialProps, requestFullfilled: false }
+    const state = { dragon: this.initialProps }
     state.dragon[target.getAttribute('name')] = target.value
     this.setState(state);
   }
 
   saveDragon() {
-    const state = { dragon: this.initialProps, requestFullfilled: true }
     this.props.onSaveDragon(this.state.dragon);
-    this.setState(state);
   }
 
   render() {
-    const { requestFullfilled } = this.state
+    const { savedDragon } = this.props
 
     return (
       <section>
         <p><input type="text" name="name" onChange={this.handleInputChange} value={this.state.dragon.name}/></p>
         <p><input type="text" name="type" onChange={this.handleInputChange} value={this.state.dragon.type}/></p>
         <p><button onClick={this.saveDragon}>Salvar</button></p>
-        {requestFullfilled && (
+        {savedDragon && (
           <Redirect to="/dragon-list"/>
         )}
       </section>
     )
   }
 }
+
+const mapStateToProps = state => ({
+  savedDragon: state.reducer.savedDragon
+});
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -58,4 +60,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(DragonProfileEdit)
+export default connect(mapStateToProps, mapDispatchToProps)(DragonProfileEdit)

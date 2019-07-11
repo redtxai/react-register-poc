@@ -1,4 +1,15 @@
-import { CREATE_DRAGON, SAVE_DRAGON, FETCH_DRAGON_LIST, FETCH_DRAGON } from '../actions/types';
+import {
+  CREATING_DRAGON,
+  CREATED_DRAGON,
+  SAVING_DRAGON,
+  SAVED_DRAGON,
+  DELETING_DRAGON,
+  DELETED_DRAGON,
+  FETCHING_DRAGON,
+  FETCH_DRAGON,
+  FETCHING_DRAGON_LIST,
+  FETCH_DRAGON_LIST
+  } from '../actions/types'
 
 const initialState = {
   dragons: [],
@@ -7,23 +18,45 @@ const initialState = {
 
 export default function dragonReducer(state = initialState, action) {
   switch (action.type) {
-    case CREATE_DRAGON:
+    case CREATING_DRAGON:
       return {
-        ...state
+        ...state,
+        creatingDragon: action.creatingDragon
       };
-    case SAVE_DRAGON:
+    case CREATED_DRAGON:
       return {
-        ...state
+        ...state,
+        createdDragon: action.createdDragon,
+        creatingDragon: false
+      };
+    case SAVING_DRAGON:
+      return {
+        ...state,
+        savingDragon: action.savingDragon
+      };
+    case SAVED_DRAGON:
+      return {
+        ...state,
+        savedDragon: action.savedDragon,
+        savingDragon: false
+      };
+    case FETCHING_DRAGON:
+      return {
+        ...state,
+        fetchingDragon: action.fetchingDragon
       };
     case FETCH_DRAGON:
       return {
         ...state,
-        dragon: action.dragon
+        dragon: action.dragon,
+        fetchingDragon: false
       };
     case FETCH_DRAGON_LIST:
       return {
         ...state,
-        dragons: action.dragons
+        dragons: action.dragons,
+        createdDragon: false,
+        savedDragon: false
       };
     default:
       return state;

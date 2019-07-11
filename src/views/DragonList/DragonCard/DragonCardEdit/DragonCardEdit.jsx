@@ -36,14 +36,14 @@ class DragonCardEdit extends Component {
   }
 
   render() {
-      return (
-        <section>
-          <p><input type="text" name="name" onChange={this.handleInputChange} value={this.state.dragon.name}/></p>
-          <p><input type="text" name="type" onChange={this.handleInputChange} value={this.state.dragon.type}/></p>
-          <p><button onClick={this.saveDragon}>Salvar</button></p>
-          <p><button onClick={this.cancelEdit}>Cancelar</button></p>
-        </section>
-      )
+    return (
+      <section>
+        <p><input type="text" name="name" onChange={this.handleInputChange} value={this.state.dragon.name}/></p>
+        <p><input type="text" name="type" onChange={this.handleInputChange} value={this.state.dragon.type}/></p>
+        <p><button onClick={this.saveDragon}>Salvar</button></p>
+        <p><button onClick={this.cancelEdit}>Cancelar</button></p>
+      </section>
+    )
   }
 }
 
