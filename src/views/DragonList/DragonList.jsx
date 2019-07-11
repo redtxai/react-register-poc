@@ -1,12 +1,21 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchAllDragons } from '../../actions';
+import { fetchAllDragons, logout } from '../../actions';
 
 import './DragonList.scss';
 import DragonCard from './DragonCard';
 
 class DragonList extends Component {
+  constructor(props) {
+    super(props);
+
+    this.logout = this.logout.bind(this);
+  }
+
+  logout() {
+    this.props.onLogout();
+  }
 
   componentDidMount() {
     const { fetchAllDragons } = this.props
@@ -19,6 +28,7 @@ class DragonList extends Component {
     }
     return (
       <article>
+        <p><button onClick={this.logout}>Logout</button></p>
         <p><Link to={`/dragon`}>Criar Dragão</Link></p>
         {this.props.dragons.map((dragon) =>
           <DragonCard key={dragon.id} dragon={dragon}/>
@@ -36,6 +46,9 @@ const mapDispatchToProps = dispatch => {
   return {
     fetchAllDragons: () => {
       dispatch(fetchAllDragons());
+    },
+    onLogout: () => {
+      dispatch(logout())
     }
   };
 };

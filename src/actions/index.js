@@ -152,8 +152,20 @@ export const loggedIn = (logged) => {
 }
 
 export const login = () => {
-  console.log('teste')
   return (dispatch) => {
     return dispatch(loggedIn(true))
+  };
+};
+
+export const loggedOut = (logged) => {
+  return {
+    type: LOGOUT,
+    logged
+  }
+}
+
+export const logout = () => {
+  return (dispatch) => {
+    return dispatch(loggedOut(false))
   };
 };
