@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { deleteDragon } from '../../../actions';
 
 import './DragonCard.scss';
 import DragonCardEdit from './DragonCardEdit';
@@ -14,6 +16,7 @@ class DragonCard extends Component {
     };
     this.handleChecked = this.handleChecked.bind(this);
     this.actionFromEdit = this.actionFromEdit.bind(this);
+    this.deleteDragon = this.deleteDragon.bind(this);
   }
 
   actionFromEdit () {
@@ -22,6 +25,11 @@ class DragonCard extends Component {
 
   handleChecked () {
     this.setState({ isEditing: !this.state.isEditing} );
+  }
+
+  deleteDragon () {
+    const { deleteDragon, dragon } = this.props
+    deleteDragon(dragon.id)
   }
 
   render() {
@@ -43,10 +51,19 @@ class DragonCard extends Component {
         <p>
           <input type="checkbox" onChange={this.handleChecked} checked={this.state.isEditing} />
         </p>
+        <p><button onClick={this.deleteDragon}>X</button></p>
         {card}
       </section>
     )
   }
 }
 
-export default DragonCard;
+const mapDispatchToProps = dispatch => {
+  return {
+    deleteDragon: (id) => {
+      dispatch(deleteDragon(id));
+    }
+  };
+};
+
+export default connect(null, mapDispatchToProps)(DragonCard);

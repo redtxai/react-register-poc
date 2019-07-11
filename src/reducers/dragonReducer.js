@@ -40,6 +40,17 @@ export default function dragonReducer(state = initialState, action) {
         savedDragon: action.savedDragon,
         savingDragon: false
       };
+    case DELETING_DRAGON:
+      return {
+        ...state,
+        deletingDragon: action.deletingDragon
+      };
+    case DELETED_DRAGON:
+      return {
+        ...state,
+        deletedDragon: action.deletedDragon,
+        deletingDragon: false
+      };
     case FETCHING_DRAGON:
       return {
         ...state,

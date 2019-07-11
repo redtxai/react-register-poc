@@ -68,6 +68,34 @@ export const saveDragon = (dragon) => {
   };
 };
 
+export const deletingDragon = () => {
+  return {
+    type: DELETING_DRAGON,
+    deletingDragon
+  }
+}
+
+export const deletedDragon = () => {
+  return {
+    type: DELETED_DRAGON,
+    deletedDragon
+  }
+}
+
+export const deleteDragon = (id) => {
+  return (dispatch) => {
+    dispatch(deletingDragon())
+    return axios.delete(`${apiUrl}/${id}`)
+      .then(response => {
+        dispatch(deletedDragon())
+        dispatch(fetchAllDragons())
+      })
+      .catch(error => {
+        throw(error);
+      });
+  };
+};
+
 export const fetchingDragon = () => {
   return {
     type: FETCHING_DRAGON,
