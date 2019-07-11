@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchAllDragons } from '../../actions';
 
@@ -18,6 +19,7 @@ class DragonList extends Component {
     }
     return (
       <article>
+        <p><Link to={`/dragon`}>Criar Dragão</Link></p>
         {this.props.dragons.map((dragon) =>
           <DragonCard key={dragon.id} dragon={dragon}/>
         )}
