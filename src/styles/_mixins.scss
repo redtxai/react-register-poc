@@ -1,0 +1,39 @@
+@mixin radius {
+  border-radius: 5px;
+}
+
+@mixin background-button {
+  background: rgb(38,38,24);
+  background: radial-gradient(circle, rgba(38,38,24,1) 0%, rgba(61,63,24,1) 67%, rgba(61,63,24,1) 100%);
+
+  border-style: solid;
+  border-width: 2px;
+  border-top-color: #626629;
+  border-left-color: #25270F;
+  border-right-color: #626629;
+  border-bottom-color: #25270F;
+}
+
+@mixin background-light-button {
+  background: rgb(85,90,32);
+  background: radial-gradient(circle, rgba(85,90,32,1) 0%, rgba(93,99,39,1) 54%, rgba(124,127,48,1) 100%);
+
+  border-style: solid;
+  border-width: 2px;
+  border-top-color: #898D36;
+  border-left-color: #1A1C04;
+  border-right-color: #898D36;
+  border-bottom-color: #1A1C04;
+}
+
+@mixin background-dark-button {
+  background: rgb(23,24,8);
+  background: radial-gradient(circle, rgba(23,24,8,1) 0%, rgba(28,30,9,1) 54%, rgba(33,35,11,1) 100%);
+
+  border-style: solid;
+  border-width: 2px;
+  border-top-color: #25270F;
+  border-left-color: #1F2308;
+  border-right-color: #25270F;
+  border-bottom-color: #1F2308;
+}

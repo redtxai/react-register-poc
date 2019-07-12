@@ -21,10 +21,10 @@ class Login extends Component {
       return <Redirect to="/dragon-list"/>
     }
     return (
-      <section>
+      <section class="login-container">
         <label>Email: <input type="email"/></label>
         <label>Password: <input type="password"/></label>
-        <button onClick={this.login}>Login</button>
+        <button onClick={this.login}>LOGIN</button>
       </section>
     )
   }

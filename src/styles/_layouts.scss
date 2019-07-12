@@ -1,0 +1,30 @@
+@import "_mixins.scss";
+@import "_variables.scss";
+
+.base-container {
+  @include radius();
+  position: relative;
+  border: 3px solid $base-brown;
+  background-color: $container-brown;
+}
+
+.base-button {
+  @include radius();
+  @include background-button();
+  color: $font-green;
+
+  height: 30px;
+
+  &:hover {
+    @include background-light-button();
+    cursor: pointer;
+    color: $font-light-green;
+  }
+
+  &:focus {
+    @include background-dark-button();
+    cursor: pointer;
+    outline: none !important;
+    color: $font-dark-green;
+  }
+}

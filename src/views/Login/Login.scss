@@ -1,4 +1,35 @@
-section {
+@import "../../styles/_layouts.scss";
+
+.login-container {
+  @extend .base-container;
+
   display: flex;
+  justify-content: space-between;
   flex-direction: column;
+
+  margin: auto;
+  padding: 15px;
+
+  width: 320px;
+  height: 150px;
+  box-sizing: border-box;
+
+  label {
+    user-select: none;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    input {
+      width: 200px;
+    }
+  }
+
+  button {
+    @extend .base-button;
+  }
 }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchDragonProfile } from '../../actions';
+import { fetchDragonProfile, logout } from '../../actions';
 
 import './DragonProfile.scss';
 
@@ -15,6 +15,11 @@ class DragonProfile extends Component {
     this.state = {
       dragon: props.dragon
     };
+    this.logout = this.logout.bind(this);
+  }
+
+  logout() {
+    this.props.onLogout();
   }
 
   componentDidMount() {
@@ -24,22 +29,23 @@ class DragonProfile extends Component {
     }
   }
 
-  render() {
+  getDragonProfile () {
     if (this.props.match.params.id) {
       if (this.props.fetchingDragon) {
         return null
       }
-      return (
-        <section>
-          <Link to={`/dragon-list`}>voltar</Link>
-          <DragonProfileEdit dragon={this.props.dragon}/>
-        </section>
-      )
+      return <DragonProfileEdit dragon={this.props.dragon}/>
+    } else {
+      return <DragonProfileCreate/>
     }
+  }
+
+  render() {
     return (
       <section>
-        <Link to={`/dragon-list`}>voltar</Link>
-        <DragonProfileCreate/>
+        <p><Link to={`/dragon-list`}>voltar</Link></p>
+        <p><button onClick={this.logout}>Logout</button></p>
+        {this.getDragonProfile()}
       </section>
     )
   }
@@ -56,6 +62,9 @@ const mapDispatchToProps = dispatch => {
   return {
     fetchDragonProfile: (id) => {
       dispatch(fetchDragonProfile(id));
+    },
+    onLogout: () => {
+      dispatch(logout())
     }
   };
 };
