@@ -1,25 +1,25 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { fetchDragonProfile, logout } from '../../actions';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
+import { fetchDragonProfile, logout } from '../../actions'
 
-import './DragonProfile.scss';
+import './DragonProfile.scss'
 
-import DragonProfileEdit from './DragonProfileEdit';
-import DragonProfileCreate from './DragonProfileCreate';
+import DragonProfileEdit from './DragonProfileEdit'
+import DragonProfileCreate from './DragonProfileCreate'
 
 class DragonProfile extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       dragon: props.dragon
-    };
-    this.logout = this.logout.bind(this);
+    }
+    this.logout = this.logout.bind(this)
   }
 
   logout() {
-    this.props.onLogout();
+    this.props.onLogout()
   }
 
   componentDidMount() {
@@ -59,18 +59,18 @@ const mapStateToProps = state => {
   return {
     dragon: state.reducer.dragon,
     fetchingDragon: state.reducer.fetchingDragon
-  };
-};
+  }
+}
 
 const mapDispatchToProps = dispatch => {
   return {
     fetchDragonProfile: (id) => {
-      dispatch(fetchDragonProfile(id));
+      dispatch(fetchDragonProfile(id))
     },
     onLogout: () => {
       dispatch(logout())
     }
-  };
-};
+  }
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(DragonProfile);
+export default connect(mapStateToProps, mapDispatchToProps)(DragonProfile)

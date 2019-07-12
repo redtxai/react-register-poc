@@ -1,6 +1,3 @@
-import DragonList from "./DragonList";
-// import * as actions from "./actions";
-// import reducer from "./reducer";
+import DragonList from "./DragonList"
 
-export default DragonList;
-// export { actions, reducer };
+export default DragonList

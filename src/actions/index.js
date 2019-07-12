@@ -38,10 +38,10 @@ export const createDragon = (dragon) => {
         dispatch(createdDragon())
       })
       .catch(error => {
-        throw(error);
-      });
-  };
-};
+        throw(error)
+      })
+  }
+}
 
 export const savingDragon = () => {
   return {
@@ -66,10 +66,10 @@ export const saveDragon = (dragon) => {
         dispatch(fetchAllDragons())
       })
       .catch(error => {
-        throw(error);
-      });
-  };
-};
+        throw(error)
+      })
+  }
+}
 
 export const deletingDragon = () => {
   return {
@@ -94,10 +94,10 @@ export const deleteDragon = (id) => {
         dispatch(fetchAllDragons())
       })
       .catch(error => {
-        throw(error);
-      });
-  };
-};
+        throw(error)
+      })
+  }
+}
 
 export const fetchingDragon = () => {
   return {
@@ -121,10 +121,10 @@ export const fetchDragonProfile = (id) => {
         dispatch(fetchDragon(response.data))
       })
       .catch(error => {
-        throw(error);
-      });
-  };
-};
+        throw(error)
+      })
+  }
+}
 
 export const fetchDragonList = (dragons) => {
   return {
@@ -140,10 +140,10 @@ export const fetchAllDragons = () => {
         dispatch(fetchDragonList(response.data))
       })
       .catch(error => {
-        throw(error);
-      });
-  };
-};
+        throw(error)
+      })
+  }
+}
 
 export const loggedIn = (logged) => {
   return {
@@ -155,8 +155,8 @@ export const loggedIn = (logged) => {
 export const login = () => {
   return (dispatch) => {
     return dispatch(loggedIn(true))
-  };
-};
+  }
+}
 
 export const loggedOut = (logged) => {
   return {
@@ -168,8 +168,8 @@ export const loggedOut = (logged) => {
 export const logout = () => {
   return (dispatch) => {
     return dispatch(loggedOut(false))
-  };
-};
+  }
+}
 
 export const toggleLoader = (loader) => {
   return {

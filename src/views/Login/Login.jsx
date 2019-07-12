@@ -1,19 +1,19 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { login } from '../../actions';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { login } from '../../actions'
 import { Redirect  } from 'react-router-dom'
 
-import './Login.scss';
+import './Login.scss'
 
 class Login extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
-    this.login = this.login.bind(this);
+    this.login = this.login.bind(this)
   }
 
   login() {
-    this.props.onLogin();
+    this.props.onLogin()
   }
 
   render() {
@@ -33,14 +33,14 @@ class Login extends Component {
 
 const mapStateToProps = state => ({
   logged: state.reducer.logged
-});
+})
 
 const mapDispatchToProps = dispatch => {
   return {
     onLogin: () => {
-      dispatch(login());
+      dispatch(login())
     }
-  };
-};
+  }
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Login)

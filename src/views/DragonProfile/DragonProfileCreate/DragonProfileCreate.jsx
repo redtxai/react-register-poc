@@ -1,33 +1,33 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { Redirect  } from 'react-router-dom'
-import { connect } from 'react-redux';
-import { createDragon } from '../../../actions';
+import { connect } from 'react-redux'
+import { createDragon } from '../../../actions'
 
-import './DragonProfileCreate.scss';
+import './DragonProfileCreate.scss'
 
 class DragonProfileCreate extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       requestFullfilled: false,
       name: '',
       type: ''
-    };
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.createDragon = this.createDragon.bind(this);
+    }
+    this.handleInputChange = this.handleInputChange.bind(this)
+    this.createDragon = this.createDragon.bind(this)
   }
 
   handleInputChange({ target }) {
     const state = {}
     state[target.getAttribute('name')] = target.value
-    this.setState(state);
+    this.setState(state)
   }
 
   createDragon() {
     const state = { requestFullfilled: true }
-    this.props.onCreateDragon(this.state);
-    this.setState(state);
+    this.props.onCreateDragon(this.state)
+    this.setState(state)
   }
 
   isValidEntry (entry) {
@@ -60,14 +60,14 @@ class DragonProfileCreate extends Component {
 
 const mapStateToProps = state => ({
   createdDragon: state.reducer.createdDragon
-});
+})
 
 const mapDispatchToProps = dispatch => {
   return {
     onCreateDragon: (dragon) => {
-      dispatch(createDragon(dragon));
+      dispatch(createDragon(dragon))
     }
-  };
-};
+  }
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(DragonProfileCreate);
+export default connect(mapStateToProps, mapDispatchToProps)(DragonProfileCreate)

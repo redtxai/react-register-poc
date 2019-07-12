@@ -1,22 +1,22 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { deleteDragon } from '../../../actions';
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { deleteDragon } from '../../../actions'
 
-import './DragonCard.scss';
-import DragonCardEdit from './DragonCardEdit';
+import './DragonCard.scss'
+import DragonCardEdit from './DragonCardEdit'
 
 class DragonCard extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       isEditing: false,
       dragon: this.props.dragon
-    };
-    this.handleChecked = this.handleChecked.bind(this);
-    this.actionFromEdit = this.actionFromEdit.bind(this);
-    this.deleteDragon = this.deleteDragon.bind(this);
+    }
+    this.handleChecked = this.handleChecked.bind(this)
+    this.actionFromEdit = this.actionFromEdit.bind(this)
+    this.deleteDragon = this.deleteDragon.bind(this)
   }
 
   actionFromEdit () {
@@ -52,7 +52,7 @@ class DragonCard extends Component {
   }
 
   render() {
-    let card;
+    let card
     if (!this.state.isEditing) {
       card = 
       <section>
@@ -87,9 +87,9 @@ class DragonCard extends Component {
 const mapDispatchToProps = dispatch => {
   return {
     deleteDragon: (id) => {
-      dispatch(deleteDragon(id));
+      dispatch(deleteDragon(id))
     }
-  };
-};
+  }
+}
 
 export default connect(null, mapDispatchToProps)(DragonCard)

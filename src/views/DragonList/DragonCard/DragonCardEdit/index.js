@@ -1,6 +1,3 @@
-import DragonCardEdit from "./DragonCardEdit";
-// import * as actions from "./actions";
-// import reducer from "./reducer";
+import DragonCardEdit from "./DragonCardEdit"
 
-export default DragonCardEdit;
-// export { actions, reducer };
+export default DragonCardEdit

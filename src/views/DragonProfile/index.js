@@ -1,6 +1,3 @@
-import DragonProfile from "./DragonProfile";
-// import * as actions from "./actions";
-// import reducer from "./reducer";
+import DragonProfile from "./DragonProfile"
 
-export default DragonProfile;
-// export { actions, reducer };
+export default DragonProfile

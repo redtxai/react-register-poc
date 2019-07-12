@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import { connect } from 'react-redux';
-import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import React, { Component } from "react"
+import { connect } from 'react-redux'
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom"
 
-import Login from '../views/Login/Login';
-import DragonList from '../views/DragonList';
-import DragonProfile from '../views/DragonProfile';
+import Login from '../views/Login/Login'
+import DragonList from '../views/DragonList'
+import DragonProfile from '../views/DragonProfile'
 
 const PrivateRoute = ({ component: Component, logged, ...rest }) => (
   <Route
@@ -17,7 +17,7 @@ const PrivateRoute = ({ component: Component, logged, ...rest }) => (
       )
     }
   />
-);
+)
 
 class Routes extends Component {
   
@@ -33,10 +33,10 @@ class Routes extends Component {
       </BrowserRouter>
     )
   }
-};
+}
 
 const mapStateToProps = state => ({
   logged: state.reducer.logged
-});
+})
 
-export default connect(mapStateToProps, null)(Routes);
+export default connect(mapStateToProps, null)(Routes)

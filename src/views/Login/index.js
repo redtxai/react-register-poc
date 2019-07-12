@@ -1,6 +1,3 @@
-import Login from "./Login";
-// import * as actions from "./actions";
-// import reducer from "./reducer";
+import Login from "./Login"
 
-export default Login;
-// export { actions, reducer };
+export default Login

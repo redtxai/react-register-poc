@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import Routes from './routes';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import Routes from './routes'
 
-import './App.scss';
+import './App.scss'
 
 class App extends Component {
   render() {
@@ -30,12 +30,12 @@ class App extends Component {
         <Routes/>
         {loader}
       </article>
-    );
+    )
   }
 }
 
 const mapStateToProps = state => ({
   loader: state.reducer.loader
-});
+})
 
-export default connect(mapStateToProps, null)(App);;
+export default connect(mapStateToProps, null)(App)

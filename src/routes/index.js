@@ -1,6 +1,3 @@
-import Routes from "./Routes";
-// import * as actions from "./actions";
-// import reducer from "./reducer";
+import Routes from "./Routes"
 
-export default Routes;
-// export { actions, reducer };
+export default Routes

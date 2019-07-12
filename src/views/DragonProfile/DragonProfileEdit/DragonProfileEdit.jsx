@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { Redirect  } from 'react-router-dom'
-import { connect } from 'react-redux';
-import { saveDragon } from '../../../actions';
+import { connect } from 'react-redux'
+import { saveDragon } from '../../../actions'
 
-import './DragonProfileEdit.scss';
+import './DragonProfileEdit.scss'
 
 class DragonProfileEdit extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       requestFullfilled: false,
       dragon: {
@@ -16,20 +16,20 @@ class DragonProfileEdit extends Component {
         createdAt: props.dragon.createdAt || '',
         type: props.dragon.type || ''
       }
-    };
-    this.initialProps = Object.assign({}, this.state.dragon);
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.saveDragon = this.saveDragon.bind(this);
+    }
+    this.initialProps = Object.assign({}, this.state.dragon)
+    this.handleInputChange = this.handleInputChange.bind(this)
+    this.saveDragon = this.saveDragon.bind(this)
   }
 
   handleInputChange({ target }) {
     const state = { dragon: this.initialProps }
     state.dragon[target.getAttribute('name')] = target.value
-    this.setState(state);
+    this.setState(state)
   }
 
   saveDragon() {
-    this.props.onSaveDragon(this.state.dragon);
+    this.props.onSaveDragon(this.state.dragon)
   }
 
   isValidEntry (entry) {
@@ -62,14 +62,14 @@ class DragonProfileEdit extends Component {
 
 const mapStateToProps = state => ({
   savedDragon: state.reducer.savedDragon
-});
+})
 
 const mapDispatchToProps = dispatch => {
   return {
     onSaveDragon: (dragon) => {
-      dispatch(saveDragon(dragon));
+      dispatch(saveDragon(dragon))
     }
-  };
-};
+  }
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(DragonProfileEdit)
