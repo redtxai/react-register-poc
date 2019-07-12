@@ -48,7 +48,7 @@ class DragonCardEdit extends Component {
           <input type="text" name="type" onChange={this.handleInputChange} value={this.state.dragon.type}/>
         </label>
         <footer>
-          <button className="save-button" onClick={this.saveDragon}>Salvar</button>
+          <button className="save-button" disabled={!this.state.dragon.name || !this.state.dragon.type} onClick={this.saveDragon}>Salvar</button>
           <button className="cancel-button" onClick={this.cancelEdit}>Cancelar</button>
         </footer>
       </section>

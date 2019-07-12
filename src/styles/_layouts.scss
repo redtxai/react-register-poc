@@ -27,6 +27,15 @@
     outline: none !important;
     color: $font-dark-green;
   }
+
+  &:disabled {
+    opacity: 0.5;
+
+    &:hover {
+      @include background-button();
+      color: $font-green;
+    }
+  }
 }
 
 .logout-button {

@@ -46,7 +46,7 @@ class DragonProfileEdit extends Component {
           <input type="text" name="type" onChange={this.handleInputChange} value={this.state.dragon.type}/>
         </label>
         <footer>
-          <button onClick={this.saveDragon}>SALVAR</button>
+          <button disabled={!this.state.dragon.name || !this.state.dragon.type} onClick={this.saveDragon}>SALVAR</button>
         </footer>
         {savedDragon && (
           <Redirect to="/dragon-list"/>
