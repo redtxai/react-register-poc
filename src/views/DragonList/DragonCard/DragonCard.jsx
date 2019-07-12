@@ -28,30 +28,39 @@ class DragonCard extends Component {
   }
 
   deleteDragon () {
-    const { deleteDragon, dragon } = this.props
-    deleteDragon(dragon.id)
+    if (window.confirm('Você tem certeza que deseja deletar esse dragão?')) {
+      const { deleteDragon, dragon } = this.props
+      deleteDragon(dragon.id)
+    }
   }
 
   render() {
     let card;
     if (!this.state.isEditing) {
-      card = <section>
-        <p><Link to={`/dragon/${this.props.dragon.id}`}>{this.props.dragon.id}</Link></p>
-        <p>{this.props.dragon.name}</p>
-        <p>{this.props.dragon.createdAt}</p>
-        <p>{this.props.dragon.type}</p>
-        <p>{this.props.dragon.histories}</p>
+      card = 
+      <section>
+        <p className="label">Nome:</p>
+        <p className="dragon-attr">{this.props.dragon.name}</p>
+        <p className="label">Tipo:</p>
+        <p className="dragon-attr">{this.props.dragon.type}</p>
+        <p className="label">Data criação:</p>
+        <p className="dragon-attr">{this.props.dragon.createdAt}</p>
+        <p className="details-line">
+          <Link className="details-button" to={`/dragon/${this.props.dragon.id}`}>
+            Ver
+          </Link>
+        </p>
       </section>
     } else {
       card = <DragonCardEdit dragon={this.props.dragon} onSave={this.actionFromEdit} onCancel={this.actionFromEdit}/>
     }
 
     return (
-      <section>
-        <p>
+      <section className="dragon-card">
+        <header>
           <input type="checkbox" onChange={this.handleChecked} checked={this.state.isEditing} />
-        </p>
-        <p><button onClick={this.deleteDragon}>X</button></p>
+          <button className="remove-button" onClick={this.deleteDragon}>X</button>
+        </header>
         {card}
       </section>
     )

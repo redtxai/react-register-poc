@@ -42,11 +42,15 @@ class DragonProfile extends Component {
 
   render() {
     return (
-      <section>
-        <p><Link to={`/dragon-list`}>voltar</Link></p>
-        <p><button onClick={this.logout}>Logout</button></p>
-        {this.getDragonProfile()}
-      </section>
+      <article className="dragon-profile">
+        <p className="buttons">
+          <Link to={`/dragon-list`}>VOLTAR</Link>
+          <button className="logout" onClick={this.logout}>LOGOUT</button>
+        </p>
+        <section className="profile-content">
+          {this.getDragonProfile()}
+        </section>
+      </article>
     )
   }
 }

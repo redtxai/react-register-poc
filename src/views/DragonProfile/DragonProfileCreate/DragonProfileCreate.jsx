@@ -34,10 +34,18 @@ class DragonProfileCreate extends Component {
     const { createdDragon } = this.props
 
     return (
-      <section>
-        <p><input type="text" name="name" onChange={this.handleInputChange} value={this.state.name}/></p>
-        <p><input type="text" name="type" onChange={this.handleInputChange} value={this.state.type}/></p>
-        <p><button onClick={this.createDragon}>Criar</button></p>
+      <section className="dragon-profile-create">
+        <label>
+          Nome:
+          <input type="text" name="name" onChange={this.handleInputChange} value={this.state.name}/>
+        </label>
+        <label>
+          Tipo:
+          <input type="text" name="type" onChange={this.handleInputChange} value={this.state.type}/>
+        </label>
+        <footer>
+          <button onClick={this.createDragon}>CRIAR</button>
+        </footer>
         {createdDragon && (
           <Redirect to="/dragon-list"/>
         )}

@@ -36,10 +36,18 @@ class DragonProfileEdit extends Component {
     const { savedDragon } = this.props
 
     return (
-      <section>
-        <p><input type="text" name="name" onChange={this.handleInputChange} value={this.state.dragon.name}/></p>
-        <p><input type="text" name="type" onChange={this.handleInputChange} value={this.state.dragon.type}/></p>
-        <p><button onClick={this.saveDragon}>Salvar</button></p>
+      <section className="dragon-profile-create">
+        <label>
+          Nome:
+          <input type="text" name="name" onChange={this.handleInputChange} value={this.state.dragon.name}/>
+        </label>
+        <label>
+          Tipo:
+          <input type="text" name="type" onChange={this.handleInputChange} value={this.state.dragon.type}/>
+        </label>
+        <footer>
+          <button onClick={this.saveDragon}>SALVAR</button>
+        </footer>
         {savedDragon && (
           <Redirect to="/dragon-list"/>
         )}
