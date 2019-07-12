@@ -13,11 +13,12 @@
 
     .remove-button {
       @extend .logout-button;
+      height: 25px;
     }
   }
 
   section {
-    height: 170px;
+    height: 160px;
   }
 
   .label {
@@ -40,8 +41,8 @@
 
     .details-button {
       @extend .base-button;
-      height: 30px;
-      line-height: 30px;
+      height: 25px;
+      line-height: 25px;
       text-decoration: none;
       padding: 1px 6px;
     }

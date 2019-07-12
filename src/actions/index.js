@@ -63,6 +63,7 @@ export const saveDragon = (dragon) => {
     return axios.put(`${apiUrl}/${dragon.id}`, dragon)
       .then(response => {
         dispatch(savedDragon())
+        dispatch(fetchAllDragons())
       })
       .catch(error => {
         throw(error);

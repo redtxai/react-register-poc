@@ -34,6 +34,23 @@ class DragonCard extends Component {
     }
   }
 
+  convertDateTime (date) {
+    const dateObject = new Date(date)
+    const dd = String(dateObject.getDate()).padStart(2, '0')
+    const mm = String(dateObject.getMonth() + 1).padStart(2, '0')
+    const yyyy = dateObject.getFullYear()
+
+    let hours = dateObject.getHours()
+    let minutes = dateObject.getMinutes()
+    const ampm = hours >= 12 ? 'PM' : 'AM'
+    hours = hours % 12
+    hours = hours ? hours : 12
+    minutes = minutes < 10 ? '0' + minutes : minutes
+    const strTime = hours + ':' + minutes + ' ' + ampm
+
+    return dd + '/' + mm + '/' + yyyy + ' ' + strTime
+  }
+
   render() {
     let card;
     if (!this.state.isEditing) {
@@ -44,10 +61,10 @@ class DragonCard extends Component {
         <p className="label">Tipo:</p>
         <p className="dragon-attr">{this.props.dragon.type}</p>
         <p className="label">Data criação:</p>
-        <p className="dragon-attr">{this.props.dragon.createdAt}</p>
+        <p className="dragon-attr">{this.convertDateTime(this.props.dragon.createdAt)}</p>
         <p className="details-line">
           <Link className="details-button" to={`/dragon/${this.props.dragon.id}`}>
-            Ver
+            VER
           </Link>
         </p>
       </section>
