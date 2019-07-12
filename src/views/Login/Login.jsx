@@ -21,9 +21,9 @@ class Login extends Component {
       return <Redirect to="/dragon-list"/>
     }
     return (
-      <section class="login-container">
-        <label>Email: <input type="email"/></label>
-        <label>Password: <input type="password"/></label>
+      <section className="login-container">
+        <label>Email: <input type="email" readOnly value="alduin@akavir.com"/></label>
+        <label>Password: <input type="password" readOnly value="dovahkiin"/></label>
         <button onClick={this.login}>LOGIN</button>
       </section>
     )

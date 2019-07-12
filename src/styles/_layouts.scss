@@ -28,3 +28,17 @@
     color: $font-dark-green;
   }
 }
+
+.base-input {
+  @include radius();
+  background-color: $strong-brown;
+  border: 2px solid $base-brown;
+  color: $light-brown;
+
+  padding: 2px 5px;
+  box-sizing: border-box;
+
+  &:focus {
+    outline: none !important;
+  }
+}
