@@ -22,6 +22,16 @@ class DragonList extends Component {
     fetchAllDragons()
   }
 
+  sortArray (a, b) {
+    if(!a.name || a.name < b.name) {
+      return -1
+    }
+    if(!b.name || a.name > b.name) {
+      return 1
+    }
+    return 0
+  }
+
   render() {
     if (!this.props.dragons.length) {
       return null
@@ -33,7 +43,7 @@ class DragonList extends Component {
           <button className="logout" onClick={this.logout}>LOGOUT</button>
         </p>
         <section className="card-list">
-          {this.props.dragons.map((dragon) =>
+          {this.props.dragons.sort(this.sortArray).map((dragon) =>
             <DragonCard key={dragon.id} dragon={dragon}/>
           )}
         </section>
