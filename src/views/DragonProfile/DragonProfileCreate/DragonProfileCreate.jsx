@@ -30,6 +30,10 @@ class DragonProfileCreate extends Component {
     this.setState(state);
   }
 
+  isValidEntry (entry) {
+    return (entry && entry.trim())
+  }
+
   render() {
     const { createdDragon } = this.props
 
@@ -44,7 +48,7 @@ class DragonProfileCreate extends Component {
           <input type="text" name="type" onChange={this.handleInputChange} value={this.state.type}/>
         </label>
         <footer>
-          <button disabled={!this.state.name || !this.state.type} onClick={this.createDragon}>CRIAR</button>
+          <button disabled={!this.isValidEntry(this.state.name) || !this.isValidEntry(this.state.type)} onClick={this.createDragon}>CRIAR</button>
         </footer>
         {createdDragon && (
           <Redirect to="/dragon-list"/>

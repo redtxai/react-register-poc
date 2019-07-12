@@ -32,6 +32,10 @@ class DragonProfileEdit extends Component {
     this.props.onSaveDragon(this.state.dragon);
   }
 
+  isValidEntry (entry) {
+    return (entry && entry.trim())
+  }
+
   render() {
     const { savedDragon } = this.props
 
@@ -46,7 +50,7 @@ class DragonProfileEdit extends Component {
           <input type="text" name="type" onChange={this.handleInputChange} value={this.state.dragon.type}/>
         </label>
         <footer>
-          <button disabled={!this.state.dragon.name || !this.state.dragon.type} onClick={this.saveDragon}>SALVAR</button>
+          <button disabled={!this.isValidEntry(this.state.dragon.name) || !this.isValidEntry(this.state.dragon.type)} onClick={this.saveDragon}>SALVAR</button>
         </footer>
         {savedDragon && (
           <Redirect to="/dragon-list"/>

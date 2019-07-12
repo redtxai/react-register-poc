@@ -74,8 +74,8 @@ class DragonCard extends Component {
 
     return (
       <section className="dragon-card">
-        <header>
-          <input type="checkbox" onChange={this.handleChecked} checked={this.state.isEditing} />
+        <header className={this.state.isEditing ? 'editing' : ''}>
+          <button className="logout" onClick={this.handleChecked}>EDITAR</button>
           <button className="remove-button" onClick={this.deleteDragon}>X</button>
         </header>
         {card}

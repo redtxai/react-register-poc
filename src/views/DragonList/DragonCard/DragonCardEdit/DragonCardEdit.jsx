@@ -37,6 +37,10 @@ class DragonCardEdit extends Component {
     this.props.onCancel();
   }
 
+  isValidEntry (entry) {
+    return (entry && entry.trim())
+  }
+
   render() {
     return (
       <section className="dragon-card-edit">
@@ -49,7 +53,7 @@ class DragonCardEdit extends Component {
           <input type="text" name="type" onChange={this.handleInputChange} value={this.state.dragon.type}/>
         </label>
         <footer>
-          <button className="save-button" disabled={!this.state.dragon.name || !this.state.dragon.type} onClick={this.saveDragon}>Salvar</button>
+          <button className="save-button" disabled={!this.isValidEntry(this.state.dragon.name) || !this.isValidEntry(this.state.dragon.type)} onClick={this.saveDragon}>Salvar</button>
           <button className="cancel-button" onClick={this.cancelEdit}>Cancelar</button>
         </footer>
       </section>

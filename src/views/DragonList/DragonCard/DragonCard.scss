@@ -11,10 +11,18 @@
     display: flex;
     justify-content: space-between;
 
+    button {
+      @extend .base-button;
+    }
+
     .remove-button {
       @extend .logout-button;
       height: 25px;
     }
+  }
+
+  .editing {
+    visibility: hidden;
   }
 
   section {
