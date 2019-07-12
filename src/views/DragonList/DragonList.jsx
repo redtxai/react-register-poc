@@ -28,11 +28,9 @@ class DragonList extends Component {
     }
     return (
       <article className="dragon-list">
-        <p>
+        <p className="buttons">
+          <Link to={`/dragon`}>Criar Dragão</Link>
           <button className="logout" onClick={this.logout}>Logout</button>
-          <button className="create-dragon">
-            <Link to={`/dragon`}>Criar Dragão</Link>
-          </button>
         </p>
         <section className="card-list">
           {this.props.dragons.map((dragon) =>
