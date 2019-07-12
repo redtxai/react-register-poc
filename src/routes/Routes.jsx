@@ -39,4 +39,4 @@ const mapStateToProps = state => ({
   logged: state.reducer.logged
 });
 
-export default connect(mapStateToProps, null)(Routes);;
+export default connect(mapStateToProps, null)(Routes);

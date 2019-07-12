@@ -9,7 +9,8 @@ import {
   FETCH_DRAGON,
   FETCH_DRAGON_LIST,
   LOGIN,
-  LOGOUT
+  LOGOUT,
+  LOADER
   } from '../actions/types'
 
 const initialState = {
@@ -76,6 +77,11 @@ export default function dragonReducer(state = initialState, action) {
       return {
         ...state,
         logged: action.logged,
+      };
+    case LOADER:
+      return {
+        ...state,
+        loader: action.loader,
       };
     default:
       return state;
