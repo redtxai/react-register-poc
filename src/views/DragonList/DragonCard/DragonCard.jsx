@@ -20,11 +20,11 @@ class DragonCard extends Component {
   }
 
   actionFromEdit () {
-    this.setState({ isEditing: !this.state.isEditing} );
+    this.setState({ isEditing: !this.state.isEditing} )
   }
 
   handleChecked () {
-    this.setState({ isEditing: !this.state.isEditing} );
+    this.setState({ isEditing: !this.state.isEditing} )
   }
 
   deleteDragon () {
@@ -92,4 +92,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(DragonCard);
+export default connect(null, mapDispatchToProps)(DragonCard)

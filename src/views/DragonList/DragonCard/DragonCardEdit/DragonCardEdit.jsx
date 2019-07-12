@@ -34,6 +34,7 @@ class DragonCardEdit extends Component {
 
   cancelEdit() {
     this.setState({ dragon: this.initialProps });
+    this.props.onCancel();
   }
 
   render() {

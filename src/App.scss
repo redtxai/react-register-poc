@@ -7,6 +7,7 @@ body {
   padding: 0;
 
   color: $font-green;
+  overflow: hidden;
 
   #root {
     height: 100%;
@@ -16,6 +17,7 @@ body {
       align-items: center;
       display: flex;
       justify-content: center;
+      overflow-y: auto;
 
       height: 100%;
       width: 100%;
@@ -24,7 +26,7 @@ body {
       padding: 20px;
 
       .backdrop {
-        position: absolute;
+        position: fixed;
         z-index: 10;
         top: 0;
         left: 0;
