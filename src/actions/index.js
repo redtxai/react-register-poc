@@ -9,7 +9,8 @@ import {
   FETCH_DRAGON,
   FETCH_DRAGON_LIST,
   LOGIN,
-  LOGOUT
+  LOGOUT,
+  LOADER
   } from './types'
 import axios from 'axios'
 
@@ -168,3 +169,10 @@ export const logout = () => {
     return dispatch(loggedOut(false))
   };
 };
+
+export const toggleLoader = (loader) => {
+  return {
+    type: LOADER,
+    loader
+  }
+}

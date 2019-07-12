@@ -6,7 +6,12 @@ import './App.scss';
 class App extends Component {
   render() {
     return (
-      <Routes/>
+      <article className="root-article">
+        <Routes/>
+        <div className="backdrop">
+          <div className="loader"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+        </div>
+      </article>
     );
   }
 }

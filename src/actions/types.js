@@ -15,3 +15,5 @@ export const FETCH_DRAGON_LIST = 'FETCH_DRAGON_LIST';
 
 export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
+
+export const LOADER = 'LOADER';
