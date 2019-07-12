@@ -29,6 +29,20 @@
   }
 }
 
+.logout-button {
+  @extend .base-button;
+  @include background-logout-button();
+
+
+  &:hover {
+    @include background-light-logout-button();
+  }
+
+  &:focus {
+    @include background-dark-logout-button();
+  }
+}
+
 .base-input {
   @include radius();
   background-color: $strong-brown;
