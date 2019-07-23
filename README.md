@@ -1,3 +1,5 @@
+Link: https://react-register-poc.herokuapp.com/
+
 This project was created with React and Sass. The idea here is simple, it's a Dragon register app, the business rules are in the README file of this repository: https://github.com/WoopSicredi/jobs/issues/6/
 
 The service consumed: http://5c4b2a47aa8ee500142b4887.mockapi.io/api/v1/dragon
