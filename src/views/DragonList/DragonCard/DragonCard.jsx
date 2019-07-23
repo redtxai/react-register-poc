@@ -56,15 +56,15 @@ class DragonCard extends Component {
     if (!this.state.isEditing) {
       card = 
       <section>
-        <p className="label">Nome:</p>
+        <p className="label">Name:</p>
         <p className="dragon-attr">{this.props.dragon.name}</p>
-        <p className="label">Tipo:</p>
+        <p className="label">Type:</p>
         <p className="dragon-attr">{this.props.dragon.type}</p>
-        <p className="label">Data criação:</p>
+        <p className="label">Creation date:</p>
         <p className="dragon-attr">{this.convertDateTime(this.props.dragon.createdAt)}</p>
         <p className="details-line">
           <Link className="details-button" to={`/dragon/${this.props.dragon.id}`}>
-            VER
+            MORE
           </Link>
         </p>
       </section>
@@ -75,7 +75,7 @@ class DragonCard extends Component {
     return (
       <section className="dragon-card">
         <header className={this.state.isEditing ? 'editing' : ''}>
-          <button className="logout" onClick={this.handleChecked}>EDITAR</button>
+          <button className="logout" onClick={this.handleChecked}>EDIT</button>
           <button className="remove-button" onClick={this.deleteDragon}>X</button>
         </header>
         {card}

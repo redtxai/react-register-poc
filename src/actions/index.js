@@ -14,7 +14,7 @@ import {
   } from './types'
 import axios from 'axios'
 
-const apiUrl = 'http://5c4b2a47aa8ee500142b4887.mockapi.io/api/v1/dragon'
+const apiUrl = 'https://5c4b2a47aa8ee500142b4887.mockapi.io/api/v1/dragon'
 
 export const creatingDragon = () => {
   return {

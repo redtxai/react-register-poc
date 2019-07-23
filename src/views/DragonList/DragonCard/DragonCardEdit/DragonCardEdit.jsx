@@ -45,16 +45,16 @@ class DragonCardEdit extends Component {
     return (
       <section className="dragon-card-edit">
         <label>
-          Nome:
+          Name:
           <input type="text" name="name" onChange={this.handleInputChange} value={this.state.dragon.name}/>
         </label>
         <label>
-          Tipo:
+          Type:
           <input type="text" name="type" onChange={this.handleInputChange} value={this.state.dragon.type}/>
         </label>
         <footer>
-          <button className="save-button" disabled={!this.isValidEntry(this.state.dragon.name) || !this.isValidEntry(this.state.dragon.type)} onClick={this.saveDragon}>Salvar</button>
-          <button className="cancel-button" onClick={this.cancelEdit}>Cancelar</button>
+          <button className="save-button" disabled={!this.isValidEntry(this.state.dragon.name) || !this.isValidEntry(this.state.dragon.type)} onClick={this.saveDragon}>Save</button>
+          <button className="cancel-button" onClick={this.cancelEdit}>Cancel</button>
         </footer>
       </section>
     )

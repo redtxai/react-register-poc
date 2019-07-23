@@ -44,7 +44,7 @@ class DragonProfile extends Component {
     return (
       <article className="dragon-profile">
         <p className="buttons">
-          <Link to={`/dragon-list`}>VOLTAR</Link>
+          <Link to={`/dragon-list`}>BACK</Link>
           <button className="logout" onClick={this.logout}>LOGOUT</button>
         </p>
         <section className="profile-content">

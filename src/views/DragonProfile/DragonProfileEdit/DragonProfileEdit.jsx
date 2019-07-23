@@ -42,15 +42,15 @@ class DragonProfileEdit extends Component {
     return (
       <section className="dragon-profile-create">
         <label>
-          Nome:
+          Name:
           <input type="text" name="name" onChange={this.handleInputChange} value={this.state.dragon.name}/>
         </label>
         <label>
-          Tipo:
+          Type:
           <input type="text" name="type" onChange={this.handleInputChange} value={this.state.dragon.type}/>
         </label>
         <footer>
-          <button disabled={!this.isValidEntry(this.state.dragon.name) || !this.isValidEntry(this.state.dragon.type)} onClick={this.saveDragon}>SALVAR</button>
+          <button disabled={!this.isValidEntry(this.state.dragon.name) || !this.isValidEntry(this.state.dragon.type)} onClick={this.saveDragon}>SAVE</button>
         </footer>
         {savedDragon && (
           <Redirect to="/dragon-list"/>

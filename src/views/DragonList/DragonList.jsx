@@ -39,7 +39,7 @@ class DragonList extends Component {
     return (
       <article className="dragon-list">
         <p className="buttons">
-          <Link to={`/dragon`}>CRIAR DRAGÃO</Link>
+          <Link to={`/dragon`}>CREATE DRAGON</Link>
           <button className="logout" onClick={this.logout}>LOGOUT</button>
         </p>
         <section className="card-list">
